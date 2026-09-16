@@ -16,7 +16,7 @@ public class StatusService {
     }
 
     public String upsertStatus(String username, String status) {
-        base.put(username, status);
+        base.putIfAbsent(username, status);
         return status;
     }
 

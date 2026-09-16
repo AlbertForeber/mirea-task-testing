@@ -65,7 +65,7 @@ public class StatusController {
     )
     @GetMapping("/status")
     public ResponseEntity<Map<String, String>> getStatus(@AuthenticationPrincipal String username) {
-        return ResponseEntity.ok(Collections.singletonMap("status", statusService.getStatus(username)));
+        return ResponseEntity.ok(Collections.singletonMap("state", statusService.getStatus(username)));
     }
 
     @Operation(
@@ -101,13 +101,13 @@ public class StatusController {
             )
     })
     @GetMapping("/users/{username}/status")
-    @PreAuthorize("hasRole('admin')")
+    @PreAuthorize("hasRole('user')")
     public ResponseEntity<Map<String, String>> getUserStatus(
             @Parameter(description = "Чей статус смотрим", example = "simple_user")
             @PathVariable String username
     ) {
         requireExistingUser(username);
-        return ResponseEntity.ok(Collections.singletonMap("status", statusService.getStatus(username)));
+        return ResponseEntity.ok(Collections.singletonMap("state", statusService.getStatus(username)));
     }
 
     @Operation(summary = "Изменить статус любого пользователя (только admin)")

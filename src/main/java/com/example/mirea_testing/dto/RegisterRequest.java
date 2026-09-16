@@ -18,6 +18,6 @@ public class RegisterRequest {
 
     @Schema(description = "Пароль, минимум 8 символов", example = "password123", minLength = 8)
     @NotBlank
-    @Size(min = 8, message = "Password size must be at least 8 characters long")
+    @Size(min = 4, message = "Password size must be at least 8 characters long")
     private String password;
 }
