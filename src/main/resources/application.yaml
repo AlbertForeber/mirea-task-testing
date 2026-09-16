@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: demo
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs          # сама спецификация OpenAPI в JSON
+  swagger-ui:
+    path: /swagger-ui.html      # редиректит на /swagger-ui/index.html
+    operations-sorter: method
+    tags-sorter: alpha
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+app:
+  jwt:
+    secret-key: 12345678123456781234567812345678
+    expiration-time: 900000
